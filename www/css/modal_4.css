@@ -1,0 +1,180 @@
+
+  @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+  *{
+  
+  font-family: Roboto;
+ 
+  }
+
+             body{
+            
+             }
+             
+             .nav-tabs {
+    border-bottom: none 
+}
+             
+             ul.nav.nav-tabs a {
+    color: black;
+    font-weight: 400;
+    /* border: none; */
+    border: none;
+    background: #b2b2b2;
+    color: black;
+    border-radius: 25px;
+}
+   
+             
+             .btn-default {
+    color: #333;
+    background-color: #fff;
+    border-color: #ccc;
+    
+    bottom: 1rem;
+}
+
+             .modal-content{
+
+               background: white;
+
+             }
+             
+             .modal-header{
+             border: none;
+             }
+             
+             .modal-footer{
+             background: #d3d3d33d;
+             }
+             
+             
+            .form-control {
+              padding: 1.5rem 1.5rem 1.5rem 3.5rem;
+              border-radius: 10px;
+            }
+            
+            button.btn.dropdown-toggle.btn-default {
+              padding: 1.5rem 3rem;
+              border-radius: 20px;
+            } 
+            
+            
+            header.header {
+              border: none;
+              position: relative;
+              height: 250px;
+              padding: 2rem;
+              background: black;
+              background: rgb(2,0,36);
+              background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(59,59,77,1) 38%, rgba(100,103,119,1) 100%);
+              border-radius: 20px;
+}
+          
+          
+          
+          
+             .shiny-input-container:not(.shiny-input-container-inline){
+             width: 100%;
+             }
+
+             .bttn-block{
+             width: fit-content;
+             }
+
+             .bttn-unite.bttn-default,
+              #saveBtn{
+              border-color: #004AE8;
+              color: #004AE8;
+              background: #8330D5;
+              color: whitesmoke;
+              padding: 0.75rem 2rem;
+              height: fit-content;
+              width: fit-content;
+              }
+              
+              button#openModalBtn {
+    position: relative;
+    bottom: -7rem;
+}
+              
+            #remove_changes_btn,
+            #cancel_changes_btn,
+            #save_changes_btn{
+            
+              padding: 0.75rem 2rem;
+              
+            
+            }
+              
+            #remove_changes_btn{
+                 float: left;
+                 background: #d3d3d33d;
+             }
+
+             #cancel_changes_btn{
+                 background: none;;
+                 border:1px solid lightgray;
+                 color: black;
+
+             }
+             
+             #save_changes_btn {
+                 background: #8330D5;
+                 color: white;
+             }
+             
+             remove_cancel_save_btns button span{
+             
+             }
+             
+             h3,p{
+              color: whitesmoke;
+             }
+             h6{
+                 width: 12rem;
+             }
+             
+/*********************************** Server Code: *******************************/
+
+          .title_div h2{
+          
+             display: inline; 
+             font-weight: 800;
+          
+          }
+          
+          .row{
+          
+          }
+          
+          .next_main{
+            display: flex;gap: 1rem;align-items: center;
+          
+          }
+          
+          .next_main .inputs{
+            width: 100%;
+          }
+          
+          .next_main .inputs .labels_input{
+            display: flex; 
+            align-items: center
+          }
+          
+          .img_logo {
+    position: absolute;
+    top: 4.75rem;
+    z-index: 9999;
+    left: 12rem;
+          }
+
+input#cardNumber{
+    position: relative;
+
+}
+
+
+
+
+
