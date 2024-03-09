@@ -17,7 +17,7 @@ body{
 	padding: 0;
   background-color: #0e6cc4;
 	overflow-x:hidden;
-	overflow-y:hidden;
+	overflow-y:hidden;S
 
 }
 
@@ -155,6 +155,4 @@ server <- function(input, output, session) {
 shinyApp(ui, server)
 
 
-
  
-
