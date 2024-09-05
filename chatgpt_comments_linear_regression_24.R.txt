@@ -1,0 +1,64 @@
+# Instalar e carregar o pacote tidyverse se ainda não estiver instalado
+library(tidyverse)
+library(gapminder)
+library(glue)
+
+# Carregar o dataset gapminder
+ 
+library(openai)
+Sys.setenv(OPENAI_API_KEY = "AQUI ENTRA A SUA CHAVE DE API")
+
+
+brazil_data <- gapminder::gapminder %>% filter(country == 'Brazil')
+
+brazil_regression <- lm(lifeExp ~ pop + gdpPercap, data = brazil_data)
+
+coef_0 <- brazil_regression$coefficients[1] 
+coef_1 <- brazil_regression$coefficients[2]
+coef_2 <- brazil_regression$coefficients[3]
+
+reg_comment <- glue::glue(
+  "Para o Brazil,O intercepto foi de  {round(coef_0,2)}.
+   O coeficiente para pop foi de {round(coef_1,10)}. 
+   O coeficiente para gdpPercap foi de {round(coef_2,6)}.
+   "
+)
+
+prompt <-  "
+    O dataset gapminder fornece informações sobre vários países ao longo do tempo, incluindo a expectativa de vida (lifeExp), 
+PIB per capita (gdpPercap) e população (pop). O que eu desejo entender é a relação entre a expectativa de vida (lifeExp), 
+variável dependente, sendo explicada pelo PIB per capita (gdpPercap) e pela população (pop), variáveis independentes.
+Para isso, rodei a regressão: lifeExp ~ gdpPercap + pop, especificamente para o país Brasil.
+
+E o resultado foi esse: {reg_comment}
+ Por favor, comente sobre esse resultado. Em particular, no seu comentário diga os valores dos coeficientes encontrados e 
+suas importâncias na análise
+No final me dê uma sugestão de qual modelo econométrico utilizar nessa situação. No máximo 1 parágrafo."
+
+prompt_and_regression_comment <- glue::glue( "
+O dataset gapminder fornece informações sobre vários países ao longo do tempo, incluindo a expectativa de vida (lifeExp), 
+PIB per capita (gdpPercap) e população (pop). O que eu desejo entender é a relação entre a expectativa de vida (lifeExp), 
+variável dependente, sendo explicada pelo PIB per capita (gdpPercap) e pela população (pop), variáveis independentes.
+Para isso, rodei a regressão: lifeExp ~ gdpPercap + pop, especificamente para o país Brasil.
+
+E o resultado foi esse: {reg_comment}
+ Por favor, comente sobre esse resultado. Em particular, no seu comentário diga os valores dos coeficientes encontrados e 
+suas importâncias na análise
+No final me dê uma sugestão de qual modelo econométrico utilizar nessa situação. No máximo 1 parágrafo.
+                                             " )
+
+
+create_chat_completion(
+  model = "gpt-4o-mini",
+  messages = list(
+    list(
+      "role" = "system",
+      "content" = 'Você é um assistente muito competente e especialista em Data 
+      Science e Análise de Dados'
+    ),
+    list(
+      "role" = "user",
+      "content" = prompt_and_regression_comment
+    )
+  )
+)$choices$message.content
