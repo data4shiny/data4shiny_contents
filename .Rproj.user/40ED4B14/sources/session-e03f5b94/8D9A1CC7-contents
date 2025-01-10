@@ -1,6 +1,5 @@
 library(openai)
 library(tidyverse)
-library(jsonlite)
 
 prompt <- "Crie um código R que leia o dataset mtcars e calcule a média de mpg por cyl."
 
